@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be558c09b0ea39c4f81cdb52f7573723, type: 3}
+  m_Name: Mage_Basic_Combo3
+  m_EditorClassIdentifier: 
+  Power: 7
+  Distance: 2
+  StopFrame: 0
+  Particle: {fileID: 1232470965182556, guid: c7889a59d58ece34eb095079be665d85, type: 3}
+  ParticlePositionOffset: {x: 0, y: 0, z: 0}
+  ParticleScaleOffset: {x: 1, y: 1, z: 1}
+  ImpulseDirection: {x: 0, y: 0, z: 0}
+  ImpulseSettings: {fileID: 0}
+  HitImpactIndex: 0
+  HitParticleDataName: MageHit1SpawnData
+  HitParticlePositionOffset: {x: 0, y: 0, z: 0}
+  HitParticleScaleOffset: {x: 1, y: 1, z: 1}
+  HitSoundName: Mage_Hit_
+  HitSoundRangeFrom: 1
+  HitSoundRangeTo: 4

@@ -1,0 +1,9 @@
+.vs/
+Library/
+Logs/
+obj/
+packages/
+.vsconfig
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp.csproj
+Portfolio_01.sln
