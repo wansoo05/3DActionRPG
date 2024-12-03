@@ -61,7 +61,7 @@ public class Katana : Melee
     {
         base.Play_SlashSound();
 
-        //°Ë±â »ç¿îµå Àç»ı
+        //ê²€ê¸° ì‚¬ìš´ë“œ ì¬ìƒ
         string name = "Katana_Swing_";
         name += SoundManager.Instance.SoundRandomRange(1, 2);
         SoundManager.Instance.PlaySound(name, SoundType.Effect, rootObject.transform, 0.3f);

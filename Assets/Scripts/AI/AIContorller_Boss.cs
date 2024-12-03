@@ -14,7 +14,7 @@ public class AIContorller_Boss : AIController
     private TimelineAsset[] assets;
 
     /// <summary>
-    /// ¿ø°Å¸® °ø°İ °³¼ö
+    /// ì›ê±°ë¦¬ ê³µê²© ê°œìˆ˜
     /// </summary>
     private int rangeAction = 3;
     public int RangeAction { get => rangeAction; }
@@ -27,12 +27,12 @@ public class AIContorller_Boss : AIController
     private HealthPointComponent health;
     private GameObject[] subordinates = new GameObject[3];
     /// <summary>
-    /// ¿òÁ÷ÀÓ Á¦¾î º¯¼ö
+    /// ì›€ì§ì„ ì œì–´ ë³€ìˆ˜
     /// </summary>
     private bool bCanMove = false;
 
     /// <summary>
-    /// °¢¼ºÇßÀ» ¶§ ¹ß»ıÇÏ´Â ÀÌº¥Æ®
+    /// ê°ì„±í–ˆì„ ë•Œ ë°œìƒí•˜ëŠ” ì´ë²¤íŠ¸
     /// </summary>
     public event Action OnAroused;
 
@@ -82,7 +82,7 @@ public class AIContorller_Boss : AIController
         if (!CheckMode())
             return;
 
-        //Ã¼·ÂÀÌ Àı¹İÀÌÇÏÀÌ°í ¹«±â°¡ °¢¼º ¹«±â°¡ ¾Æ´Ï¶ó¸é °¢¼º¸ğµå·Î º¯ÇÑ´Ù.
+        //ì²´ë ¥ì´ ì ˆë°˜ì´í•˜ì´ê³  ë¬´ê¸°ê°€ ê°ì„± ë¬´ê¸°ê°€ ì•„ë‹ˆë¼ë©´ ê°ì„±ëª¨ë“œë¡œ ë³€í•œë‹¤.
         if (health.Half && myWeaponType != WeaponType.Boss_Super)
         {
             SuperSetting();
@@ -190,7 +190,7 @@ public class AIContorller_Boss : AIController
     }
 
     /// <summary>
-    /// °¢¼º ¸ğµå ¼¼ÆÃ
+    /// ê°ì„± ëª¨ë“œ ì„¸íŒ…
     /// </summary>
     private void SuperSetting()
     {
@@ -262,7 +262,7 @@ public class AIContorller_Boss : AIController
     }
 
     /// <summary>
-    /// Á×À» ¶§ ½ÇÇàµÇ´Â ÇÔ¼ö
+    /// ì£½ì„ ë•Œ ì‹¤í–‰ë˜ëŠ” í•¨ìˆ˜
     /// </summary>
     public void Dead()
     {

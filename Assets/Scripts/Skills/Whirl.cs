@@ -47,7 +47,7 @@ public class Whirl : Skill
 
         if (hitIndex == 5)
         {
-            //°Ë±â »ç¿îµå Àç»ı
+            //ê²€ê¸° ì‚¬ìš´ë“œ ì¬ìƒ
             string name = "Slash_LightningStrike";
             SoundManager.Instance.PlaySound(name, SoundType.Effect, rootObject.transform);
         }

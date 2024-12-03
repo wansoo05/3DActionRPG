@@ -49,7 +49,7 @@ public class PatrolComponent : MonoBehaviour
         if (Vector3.Distance(transform.position, destination) >= navMeshAgent.stoppingDistance)
             return;
 
-        print($"{transform.name} : ¸ñÀûÁö µµÂø");
+        print($"{transform.name} : ëª©ì ì§€ ë„ì°©");
         bArrived = true;
         float waitTime = waitDelay + UnityEngine.Random.Range(-waitDelayRandom, +waitDelayRandom);
 
@@ -104,7 +104,7 @@ public class PatrolComponent : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
-        print($"{transform.name} : ¼øÂû ´ë±â");
+        print($"{transform.name} : ìˆœì°° ëŒ€ê¸°");
         navMeshPath = CreateNavMeshPath();
         if (navMeshPath != null)
         {

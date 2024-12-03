@@ -35,7 +35,7 @@ public class LightningStrike: Skill
 
     public override void Begin_Collision(AnimationEvent e)
     {
-        //°Ë±â »ç¿îµå Àç»ı
+        //ê²€ê¸° ì‚¬ìš´ë“œ ì¬ìƒ
         string name = "Slash_LightningStrike";
         SoundManager.Instance.PlaySound(name, SoundType.Effect, rootObject.transform);
 

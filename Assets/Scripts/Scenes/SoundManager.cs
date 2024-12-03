@@ -52,7 +52,7 @@ public class SoundManager : MonoBehaviour
         AudioClip clip = audioDictionary[name];
         if (clip == null)
         {
-            Debug.LogError(name + "ÀÌ Á¸ÀçÇÏÁö ¾ÊÀ½.");
+            Debug.LogError(name + "ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŒ.");
         }
 
         return clip;
@@ -81,11 +81,11 @@ public class SoundManager : MonoBehaviour
             obj.transform.position = audioTarget.position + Vector3.up;
 
             AudioSource source = obj.AddComponent<AudioSource>();
-            source.spatialBlend = 1.0f; //3D »ç¿îµå ÁöÁ¤.
+            source.spatialBlend = 1.0f; //3D ì‚¬ìš´ë“œ ì§€ì •.
             source.minDistance = 5.0f;
             source.maxDistance = 30.0f;
             source.clip = clip;
-            source.rolloffMode = AudioRolloffMode.Logarithmic; //°Å¸® Áõ°¡¿¡ µû¶ó ¼Ò¸®°¡ ´õ ºü¸£°Ô °¨¼Ò
+            source.rolloffMode = AudioRolloffMode.Logarithmic; //ê±°ë¦¬ ì¦ê°€ì— ë”°ë¼ ì†Œë¦¬ê°€ ë” ë¹ ë¥´ê²Œ ê°ì†Œ
 
             source.volume = volume;
             source.Play();

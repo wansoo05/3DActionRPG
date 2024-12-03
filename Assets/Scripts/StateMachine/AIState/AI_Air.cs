@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// °øÁßÀ¸·Î ¶ç¿öÁø °ø°İÀ» ¸Â¾ÒÀ» ¶§ÀÇ »óÅÂ
+/// ê³µì¤‘ìœ¼ë¡œ ë„ì›Œì§„ ê³µê²©ì„ ë§ì•˜ì„ ë•Œì˜ ìƒíƒœ
 /// </summary>
 public class AI_Air : AI_Base
 {
@@ -31,10 +31,10 @@ public class AI_Air : AI_Base
         if (player == null)
             return;
 
-        //°øÁßÀ¸·Î ¶ç¿öÁ³À» ¶§ ÇÃ·¹ÀÌ¾î ¾Õ¿¡ ¹èÄ¡ÇÏ°Ô ÇÏ±â À§ÇÑ ·ÎÁ÷
-        //ÇÃ·¹ÀÌ¾î Àü¹æ ¾Õ 2.0f¿¡ Æò¸éÀ» ÇÏ³ª ¸¸µç´Ù.
+        //ê³µì¤‘ìœ¼ë¡œ ë„ì›Œì¡Œì„ ë•Œ í”Œë ˆì´ì–´ ì•ì— ë°°ì¹˜í•˜ê²Œ í•˜ê¸° ìœ„í•œ ë¡œì§
+        //í”Œë ˆì´ì–´ ì „ë°© ì• 2.0fì— í‰ë©´ì„ í•˜ë‚˜ ë§Œë“ ë‹¤.
         Plane plane = new Plane(player.transform.forward, player.transform.position + player.transform.forward * 2.0f);
-        //ÇöÀç AIÀÇ À§Ä¡¸¦ ¸¸µç Æò¸é À§ÀÇ °¡Àå°¡±î¿î Á¡À¸·Î ÀÌµ¿½ÃÅ²´Ù.
+        //í˜„ì¬ AIì˜ ìœ„ì¹˜ë¥¼ ë§Œë“  í‰ë©´ ìœ„ì˜ ê°€ì¥ê°€ê¹Œìš´ ì ìœ¼ë¡œ ì´ë™ì‹œí‚¨ë‹¤.
         Vector3 position = sender.transform.position;
         Vector3 projectPosition = plane.ClosestPointOnPlane(position);
         sender.transform.position = projectPosition;
@@ -50,7 +50,7 @@ public class AI_Air : AI_Base
         if (currentCoolTime > 0.0f)
             return;
 
-        //¶¥À¸·Î ¶³¾îÁö´Â °ÍÀ» ÆÇ´Ü
+        //ë•…ìœ¼ë¡œ ë–¨ì–´ì§€ëŠ” ê²ƒì„ íŒë‹¨
         if (Physics.Raycast(sender.transform.position + Vector3.up * 0.3f, Vector3.down, 0.4f, 1 << 7))
         {
             sender.SetState(AIController.State.Getup);

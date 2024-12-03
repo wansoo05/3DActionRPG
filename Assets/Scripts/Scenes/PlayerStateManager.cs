@@ -12,7 +12,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void LoadState()
     {
-        //´ÙÀ½ ¾ÀÀ¸·Î ³Ñ¾î°¬À» ¶§ ÇÃ·¹ÀÌ¾î°¡ À§¿¡¼­ ¶³¾îÁö°í ÀÖÀ» ¶§´Â FallingMode·Î µÇ¾îÀÖ±â ¶§¹®¿¡ ÇÑ ÇÁ·¹ÀÓ¸¸ Idle·Î ¹Ù²Ù°í µ¥ÀÌÅÍ ·Îµå¸¦ ½ÃÀÛÇÑ´Ù.
+        //ë‹¤ìŒ ì”¬ìœ¼ë¡œ ë„˜ì–´ê°”ì„ ë•Œ í”Œë ˆì´ì–´ê°€ ìœ„ì—ì„œ ë–¨ì–´ì§€ê³  ìˆì„ ë•ŒëŠ” FallingModeë¡œ ë˜ì–´ìˆê¸° ë•Œë¬¸ì— í•œ í”„ë ˆì„ë§Œ Idleë¡œ ë°”ê¾¸ê³  ë°ì´í„° ë¡œë“œë¥¼ ì‹œì‘í•œë‹¤.
         StateComponent stateComponent = GameManager.Instance.PlayerInstance.GetComponent<StateComponent>();
         stateComponent.SetIdleMode();
 

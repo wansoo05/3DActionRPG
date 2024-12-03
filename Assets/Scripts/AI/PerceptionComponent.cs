@@ -36,9 +36,9 @@ public class PerceptionComponent : MonoBehaviour
 
         foreach(Collider collider in colliders)
         {
-            //°¨ÁöµÈ Ä³¸¯ÅÍ¿ÍÀÇ ¹æÇâÀ» ¾ò±âÀ§ÇÑ º¯¼ö
+            //ê°ì§€ëœ ìºë¦­í„°ì™€ì˜ ë°©í–¥ì„ ì–»ê¸°ìœ„í•œ ë³€ìˆ˜
             Vector3 direction = collider.transform.position - transform.position;
-            //°¨ÁöµÈ Ä³¸¯ÅÍ·ÎºÎÅÍ ÀÚ½Å°ú °°Àº ³ôÀÌ¿¡¼­ ¹æÇâÀ» ¾ò±âÀ§ÇÑ º¯¼ö
+            //ê°ì§€ëœ ìºë¦­í„°ë¡œë¶€í„° ìì‹ ê³¼ ê°™ì€ ë†’ì´ì—ì„œ ë°©í–¥ì„ ì–»ê¸°ìœ„í•œ ë³€ìˆ˜
             Vector3 direction2 = direction;
             direction2.y = 0.0f;
             float horizontalAngle = Vector3.Angle(transform.forward, direction2);

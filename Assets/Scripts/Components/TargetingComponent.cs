@@ -85,7 +85,7 @@ public class TargetingComponent : MonoBehaviour
         if (state.ActionMode)
             return;
 
-        //Å¸°ÙÀ» ÇâÇØ¼­ ÇÃ·¹ÀÌ¾î È¸Àü
+        //íƒ€ê²Ÿì„ í–¥í•´ì„œ í”Œë ˆì´ì–´ íšŒì „
         Vector3 direction = originTarget.transform.position - transform.position;
         direction.y = 0.0f;
         transform.rotation = Quaternion.LookRotation(direction);
@@ -93,11 +93,11 @@ public class TargetingComponent : MonoBehaviour
 
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î ¹üÀ§¾È¿¡ µç Å¸°Ù ÈÄº¸µé ¼±Á¤
+    /// í”Œë ˆì´ì–´ ë²”ìœ„ì•ˆì— ë“  íƒ€ê²Ÿ í›„ë³´ë“¤ ì„ ì •
     /// </summary>
     private void Targeting()
     {
-        //°ø°İ ÁßÀÏ ¶§´Â Å¸°Ù ¼±Á¤À» ÇÏÁö ¾Ê´Â´Ù.
+        //ê³µê²© ì¤‘ì¼ ë•ŒëŠ” íƒ€ê²Ÿ ì„ ì •ì„ í•˜ì§€ ì•ŠëŠ”ë‹¤.
         if (state.ActionMode)
             return;
 
@@ -131,9 +131,9 @@ public class TargetingComponent : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î Àü¹æÀÇ ÁÂ¿ì 45µµ °¢µµ¾È¿¡ µç ÈÄº¸µé Áß¿¡¼­ Á¦ÀÏ Àü¹æ¿¡¼­ °¡±î¿î ÈÄº¸¸¦ Å¸°ÙÀ¸·Î ¼±Á¤
+    /// í”Œë ˆì´ì–´ ì „ë°©ì˜ ì¢Œìš° 45ë„ ê°ë„ì•ˆì— ë“  í›„ë³´ë“¤ ì¤‘ì—ì„œ ì œì¼ ì „ë°©ì—ì„œ ê°€ê¹Œìš´ í›„ë³´ë¥¼ íƒ€ê²Ÿìœ¼ë¡œ ì„ ì •
     /// </summary>
-    /// <param name="targets">Å¸°Ù ÈÄº¸µé</param>
+    /// <param name="targets">íƒ€ê²Ÿ í›„ë³´ë“¤</param>
     /// <returns></returns>
     private GameObject GetNearlyTarget(List<GameObject> condidates)
     {
@@ -144,7 +144,7 @@ public class TargetingComponent : MonoBehaviour
             dic.TryAdd(Vector3.Distance(transform.position, obj.transform.position), obj);
         }
 
-        //Àü¹æ 90µµ °¢ ¾È¿¡ ÀûÀÌ ¾ø´Â °æ¿ì
+        //ì „ë°© 90ë„ ê° ì•ˆì— ì ì´ ì—†ëŠ” ê²½ìš°
         if (dic.Count <= 0)
             return null;
 
@@ -159,10 +159,10 @@ public class TargetingComponent : MonoBehaviour
     }
 
     /// <summary>
-    /// targetÀÇ TargetMarkUI¸¦ Å°°Å³ª ²ô´Â ÇÔ¼ö
+    /// targetì˜ TargetMarkUIë¥¼ í‚¤ê±°ë‚˜ ë„ëŠ” í•¨ìˆ˜
     /// </summary>
-    /// <param name="on">onÀÌ trueÀÌ¸é ÄÑ±â, falseÀÌ¸é ²ô±â</param>
-    /// <param name="target">´ë»ó</param>
+    /// <param name="on">onì´ trueì´ë©´ ì¼œê¸°, falseì´ë©´ ë„ê¸°</param>
+    /// <param name="target">ëŒ€ìƒ</param>
     private void TargetMarkOnOff(bool on, GameObject target)
     {
         if (target == null) return;

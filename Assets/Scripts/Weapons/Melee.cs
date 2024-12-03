@@ -123,7 +123,7 @@ public class Melee : Weapon
             hitPoint = other.transform.InverseTransformPoint(hitPoint);
         }
 
-        //ÇÃ·¹ÀÌ¾î°¡ °ø°İÇÏ¿´À» ¶§
+        //í”Œë ˆì´ì–´ê°€ ê³µê²©í•˜ì˜€ì„ ë•Œ
         if (isPlayer)
         {
             Play_Impulse();
@@ -134,7 +134,7 @@ public class Melee : Weapon
     }
 
     /// <summary>
-    /// targetÀ» ÇâÇÏ¿© ¹Ù¶óº¸°Ô È¸Àü½ÃÄÑÁÖ´Â ÇÔ¼ö
+    /// targetì„ í–¥í•˜ì—¬ ë°”ë¼ë³´ê²Œ íšŒì „ì‹œì¼œì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="target"></param>
     private void lookRotate(GameObject target)

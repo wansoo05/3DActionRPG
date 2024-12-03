@@ -13,7 +13,7 @@ public class AI_Patrol : AI_Base
     {
         base.Enter(sender, prevState);
 
-        //¹«±â ÀåÂø ÁßÀÌ¸é ¹«±â ÀåÂø ÇØÁ¦
+        //ë¬´ê¸° ì¥ì°© ì¤‘ì´ë©´ ë¬´ê¸° ì¥ì°© í•´ì œ
         if (weapon.UnarmedMode == false)
             weapon.SetUnarmedMode();
 

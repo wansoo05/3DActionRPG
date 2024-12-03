@@ -44,9 +44,9 @@ public class Projectile : MonoBehaviour
     }
 
     /// <summary>
-    /// ProjectileÀ» ¸îÃÊ µÚ¿¡ ¾ø¾îÁö°Ô ÇÏ±â À§ÇÑ ÄÚ·çÆ¾ ÇÔ¼ö.
+    /// Projectileì„ ëª‡ì´ˆ ë’¤ì— ì—†ì–´ì§€ê²Œ í•˜ê¸° ìœ„í•œ ì½”ë£¨í‹´ í•¨ìˆ˜.
     /// </summary>
-    /// <param name="time"> ¼ö¸í ½Ã°£ </param>
+    /// <param name="time"> ìˆ˜ëª… ì‹œê°„ </param>
     /// <returns></returns>
     private IEnumerator DestroyProjectile(float time)
     {

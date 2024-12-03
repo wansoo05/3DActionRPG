@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 using StateType = StateComponent.StateType;
 
 /// <summary>
-/// °ø°İ Á¾·ù¸¦ ³ªÅ¸³»±â À§ÇÑ ¿­°ÅÇü
+/// ê³µê²© ì¢…ë¥˜ë¥¼ ë‚˜íƒ€ë‚´ê¸° ìœ„í•œ ì—´ê±°í˜•
 /// </summary>
 public enum ActionType
 {
@@ -19,7 +19,7 @@ public enum ActionType
 public class Player : Character, IDamagable, IAirable
 {
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾îÀÇ ÇöÀç °ø°İ »óÅÂ
+    /// í”Œë ˆì´ì–´ì˜ í˜„ì¬ ê³µê²© ìƒíƒœ
     /// </summary>
     private ActionType curActionType = ActionType.Attack;
     public ActionType CurActionType
@@ -103,7 +103,7 @@ public class Player : Character, IDamagable, IAirable
     {
         if (state.IdleMode || state.ActionMode)
         {
-            //ÇöÀç °ø°İ »óÅÂ°¡ AttackÀÌ¸é ¹«±â¿¡ °ø°İ ¸í·ÉÀ» ³»¸®°í SkillÀÌ¸é ½ºÅ³¿¡ °ø°İ ¸í·ÉÀ» ³»¸°´Ù.
+            //í˜„ì¬ ê³µê²© ìƒíƒœê°€ Attackì´ë©´ ë¬´ê¸°ì— ê³µê²© ëª…ë ¹ì„ ë‚´ë¦¬ê³  Skillì´ë©´ ìŠ¤í‚¬ì— ê³µê²© ëª…ë ¹ì„ ë‚´ë¦°ë‹¤.
             if (CurActionType == ActionType.Attack)
                 weapon.DoAction();
             else
@@ -157,7 +157,7 @@ public class Player : Character, IDamagable, IAirable
     {
         base.Update();
 
-        //Å×½ºÆ®¿ë ¹æ¾î °­È­ ¹× °ø°İ °­È­ Ä¿¸Çµå
+        //í…ŒìŠ¤íŠ¸ìš© ë°©ì–´ ê°•í™” ë° ê³µê²© ê°•í™” ì»¤ë§¨ë“œ
         if (Input.GetKey(KeyCode.C) && Input.GetKeyDown(KeyCode.K))
         {
             Armor += 10.0f;
@@ -169,7 +169,7 @@ public class Player : Character, IDamagable, IAirable
     }
 
     /// <summary>
-    /// PlayableDirector¿¡ µî·ÏÇÑ ÀÌº¥Æ® ÇÔ¼ö
+    /// PlayableDirectorì— ë“±ë¡í•œ ì´ë²¤íŠ¸ í•¨ìˆ˜
     /// </summary>
     /// <param name="pd"></param>
     private void OnPlayed(PlayableDirector pd)
@@ -183,7 +183,7 @@ public class Player : Character, IDamagable, IAirable
     }
 
     /// <summary>
-    /// PlayableDirector¿¡ µî·ÏÇÑ ÀÌº¥Æ® ÇÔ¼ö
+    /// PlayableDirectorì— ë“±ë¡í•œ ì´ë²¤íŠ¸ í•¨ìˆ˜
     /// </summary>
     /// <param name="pd"></param>
     private void OnStopped(PlayableDirector pd)
@@ -192,40 +192,40 @@ public class Player : Character, IDamagable, IAirable
     }
 
     /// <summary>
-    /// ÀûÀ¸·ÎºÎÅÍ ÇÇ°İÀ» ¹Ş¾ÒÀ» ¶§ ºÒ·ÁÁö´Â ÇÔ¼ö
+    /// ì ìœ¼ë¡œë¶€í„° í”¼ê²©ì„ ë°›ì•˜ì„ ë•Œ ë¶ˆë ¤ì§€ëŠ” í•¨ìˆ˜
     /// </summary>
-    /// <param name="attacker">°ø°İÀÚ</param>
-    /// <param name="causer">°ø°İÇÑ ¹«±â</param>
-    /// <param name="hitPoint">°ø°İ´çÇÑ À§Ä¡</param>
-    /// <param name="data">ÇÇ°İ µ¥ÀÌÅÍ</param>
+    /// <param name="attacker">ê³µê²©ì</param>
+    /// <param name="causer">ê³µê²©í•œ ë¬´ê¸°</param>
+    /// <param name="hitPoint">ê³µê²©ë‹¹í•œ ìœ„ì¹˜</param>
+    /// <param name="data">í”¼ê²© ë°ì´í„°</param>
     public void OnDamage(GameObject attacker, Weapon causer, Vector3 hitPoint, HittingData data)
     {
-        //ÇÇÇÏ´Â ÁßÀÌ¶ó¸é
+        //í”¼í•˜ëŠ” ì¤‘ì´ë¼ë©´
         if (state.EvadeMode)
         {
-            //°ø°İÀÚ°¡ º¸½º¶ó¸é ½½·Î¿ì ¸ğ¼Ç°ú ÇÔ²² ÇÇ°İ ¹ŞÁö ¾Ê°Ô ÇÑ´Ù.
+            //ê³µê²©ìê°€ ë³´ìŠ¤ë¼ë©´ ìŠ¬ë¡œìš° ëª¨ì…˜ê³¼ í•¨ê»˜ í”¼ê²© ë°›ì§€ ì•Šê²Œ í•œë‹¤.
             if (attacker.GetComponent<AIContorller_Boss>() != null)
             {
                 StartCoroutine(Slow(0.7f));
                 return;
             }
-            //º¸½º°¡ ¾Æ´Ï¶ó¸é ±×³É ÇÇ°İ ¹ŞÁö ¾Ê°Ô ÇÑ´Ù.
+            //ë³´ìŠ¤ê°€ ì•„ë‹ˆë¼ë©´ ê·¸ëƒ¥ í”¼ê²© ë°›ì§€ ì•Šê²Œ í•œë‹¤.
             else
             {
                 return;
             }
         }
 
-        //HP¸¦ ±ğ´Â´Ù.
+        //HPë¥¼ ê¹ëŠ”ë‹¤.
         healthPoint.Damage(data.Power - armor > 0 ? data.Power - armor : 0 );
 
-        //Hit StopÀ» ÁØ´Ù.
+        //Hit Stopì„ ì¤€ë‹¤.
         MovableStopper.Instance.Start_Delay(data.StopFrame);
 
-        //ÇÇ°İ½Ã Ä«¸Ş¶óÀÇ ¶³¸²À» Ç¥ÇöÇÑ´Ù.
+        //í”¼ê²©ì‹œ ì¹´ë©”ë¼ì˜ ë–¨ë¦¼ì„ í‘œí˜„í•œë‹¤.
         Play_Impulse(data);
 
-        //Å¸°İÀ½ Àç»ı
+        //íƒ€ê²©ìŒ ì¬ìƒ
         if (data.HitSoundName != "")
         {
             string name = data.HitSoundName;
@@ -233,7 +233,7 @@ public class Player : Character, IDamagable, IAirable
             SoundManager.Instance.PlaySound(name, SoundType.Effect, this.transform);
         }
 
-        //ÇÇ°İ ÀÌÆåÆ® »ı¼º
+        //í”¼ê²© ì´í™íŠ¸ ìƒì„±
         if (data.HitParticleDataName != null)
         {
             GameObject obj = Factory.Instance.GetEffect(data.HitParticleDataName);
@@ -247,10 +247,10 @@ public class Player : Character, IDamagable, IAirable
         }
 
 
-        //ÇÇ°İ µÇ¾úÀ» ¶§ Á×Áö ¾Ê¾Ò´Ù¸é
+        //í”¼ê²© ë˜ì—ˆì„ ë•Œ ì£½ì§€ ì•Šì•˜ë‹¤ë©´
         if (healthPoint.Dead == false)
         {
-            //ÇÇ°İ ¸ğ¼ÇÀ» Àç»ıÇÒ°ÍÀÎÁö °Ë»ç
+            //í”¼ê²© ëª¨ì…˜ì„ ì¬ìƒí• ê²ƒì¸ì§€ ê²€ì‚¬
             if (DamageCheck(state.Type, data.HitImpactIndex) == false)
                 return;
 
@@ -268,7 +268,7 @@ public class Player : Character, IDamagable, IAirable
                     {
                         Secure_End_DoAction();
                     }
-                    //¹Ğ¸®µµ·Ï ¿ÜºÎÈû Ãß°¡
+                    //ë°€ë¦¬ë„ë¡ ì™¸ë¶€í˜ ì¶”ê°€
                     moving.ExternalForce = direction.normalized * force;
                     state.SetDownMode();
 
@@ -299,7 +299,7 @@ public class Player : Character, IDamagable, IAirable
     }
 
     /// <summary>
-    /// µô·¹ÀÌ¸¦ °É°í °ÔÀÓÀ» ³¡³»±â À§ÇÑ ÄÚ·çÆ¾ ÇÔ¼ö
+    /// ë”œë ˆì´ë¥¼ ê±¸ê³  ê²Œì„ì„ ëë‚´ê¸° ìœ„í•œ ì½”ë£¨í‹´ í•¨ìˆ˜
     /// </summary>
     /// <returns></returns>
     private IEnumerator DelayGameOver()
@@ -324,7 +324,7 @@ public class Player : Character, IDamagable, IAirable
     }
 
     /// <summary>
-    /// °ø°İÇÒ ¶§ »óÅÂÀüÈ¯À» À§ÇØ ¾ÈÀüÇÏ°Ô °ø°İ »óÅÂ¸¦ ³¡³»±â À§ÇÑ ÇÔ¼ö
+    /// ê³µê²©í•  ë•Œ ìƒíƒœì „í™˜ì„ ìœ„í•´ ì•ˆì „í•˜ê²Œ ê³µê²© ìƒíƒœë¥¼ ëë‚´ê¸° ìœ„í•œ í•¨ìˆ˜
     /// </summary>
     private void Secure_End_DoAction()
     {
@@ -360,10 +360,10 @@ public class Player : Character, IDamagable, IAirable
     }
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î »óÅÂ¿¡ µû¸¥ ÇÇ°İ ¾Ö´Ï¸ŞÀÌ¼Ç Àç»ı ¿©ºÎ
+    /// í”Œë ˆì´ì–´ ìƒíƒœì— ë”°ë¥¸ í”¼ê²© ì• ë‹ˆë©”ì´ì…˜ ì¬ìƒ ì—¬ë¶€
     /// </summary>
-    /// <param name="curState">ÇöÀç ÇÃ·¹ÀÌ¾î »óÅÂ</param>
-    /// <param name="damageType">µ¥¹ÌÁö »óÅÂ</param>
+    /// <param name="curState">í˜„ì¬ í”Œë ˆì´ì–´ ìƒíƒœ</param>
+    /// <param name="damageType">ë°ë¯¸ì§€ ìƒíƒœ</param>
     /// <returns></returns>
     private bool DamageCheck(StateType curState, HitType damageType)
     {
@@ -413,7 +413,7 @@ public class Player : Character, IDamagable, IAirable
     {
         switch (newType)
         {
-            //´Ù¿î ´çÇßÀ» ½Ã ¸ø¿òÁ÷ÀÌ°Ô ÇÑ´Ù.
+            //ë‹¤ìš´ ë‹¹í–ˆì„ ì‹œ ëª»ì›€ì§ì´ê²Œ í•œë‹¤.
             case StateType.Down:
             {
                 moving.Stop();
@@ -426,7 +426,7 @@ public class Player : Character, IDamagable, IAirable
     Coroutine waitRoutine = null;
 
     /// <summary>
-    /// ÇÇ°İ ¸ğ¼ÇÀÌ ³¡³µÀ» ¶§ ºÒ·ÁÁö´Â ÀÌº¥Æ® ÇÔ¼ö
+    /// í”¼ê²© ëª¨ì…˜ì´ ëë‚¬ì„ ë•Œ ë¶ˆë ¤ì§€ëŠ” ì´ë²¤íŠ¸ í•¨ìˆ˜
     /// </summary>
     protected override void End_Damaged()
     {
@@ -434,7 +434,7 @@ public class Player : Character, IDamagable, IAirable
 
         switch (state.Type)
         {
-            //´Ù¿î»óÅÂ¿´À» ¶§´Â ´ë±â ½Ã°£À» ÁØ´Ù.
+            //ë‹¤ìš´ìƒíƒœì˜€ì„ ë•ŒëŠ” ëŒ€ê¸° ì‹œê°„ì„ ì¤€ë‹¤.
             case StateType.Down:
             {
                 if (waitRoutine != null)
@@ -453,9 +453,9 @@ public class Player : Character, IDamagable, IAirable
     }
 
     /// <summary>
-    /// ´ë±â½Ã°£À» ÁÖ±â À§ÇÑ ÄÚ·çÆ¾ÇÔ¼ö
+    /// ëŒ€ê¸°ì‹œê°„ì„ ì£¼ê¸° ìœ„í•œ ì½”ë£¨í‹´í•¨ìˆ˜
     /// </summary>
-    /// <param name="time">´ë±âÇÒ ÃÊ</param>
+    /// <param name="time">ëŒ€ê¸°í•  ì´ˆ</param>
     /// <returns></returns>
     private IEnumerator Wait(float time)
     {
@@ -467,9 +467,9 @@ public class Player : Character, IDamagable, IAirable
     }
 
     /// <summary>
-    /// ½½·Î¿ì¸¦ °É¾îÁÙ ÄÚ·çÆ¾ ÇÔ¼ö
+    /// ìŠ¬ë¡œìš°ë¥¼ ê±¸ì–´ì¤„ ì½”ë£¨í‹´ í•¨ìˆ˜
     /// </summary>
-    /// <param name="time">½½·Î¿ìÇÒ ½Ã°£(ÃÊ)</param>
+    /// <param name="time">ìŠ¬ë¡œìš°í•  ì‹œê°„(ì´ˆ)</param>
     /// <returns></returns>
     private IEnumerator Slow(float time)
     {
@@ -479,7 +479,7 @@ public class Player : Character, IDamagable, IAirable
     }
 
     /// <summary>
-    /// ¹ß ¼Ò¸® Àç»ıÀ» À§ÇÑ ¾Ö´Ï¸ŞÀÌ¼Ç ÀÌº¥Æ® ÇÔ¼ö
+    /// ë°œ ì†Œë¦¬ ì¬ìƒì„ ìœ„í•œ ì• ë‹ˆë©”ì´ì…˜ ì´ë²¤íŠ¸ í•¨ìˆ˜
     /// </summary>
     /// <param name="animationEvent"></param>
     protected override void OnFootStep(AnimationEvent animationEvent)

@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     }
     public InputActions input;
     /// <summary>
-    /// Å¸ÀÓ¶óÀÎÀ» Àç»ı½ÃÄÑÁÙ ¿ÀºêÁ§Æ®¸¦ Ã£¾ÆÁÜ
+    /// íƒ€ì„ë¼ì¸ì„ ì¬ìƒì‹œì¼œì¤„ ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ì•„ì¤Œ
     /// </summary>
     private TimelinePlayer timelinePlayer;
     public TimelinePlayer TimelinePlayerInstance
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     private float originTimeScale = 1.0f;
     /// <summary>
-    /// °ÔÀÓ ½ÃÀÛ½Ã ÃÖÃÊ ÇÑ¹ø¸¸ ½ÇÇàÇÏ±â À§ÇØ ÇÊ¿äÇÑ º¯¼ö
+    /// ê²Œì„ ì‹œì‘ì‹œ ìµœì´ˆ í•œë²ˆë§Œ ì‹¤í–‰í•˜ê¸° ìœ„í•´ í•„ìš”í•œ ë³€ìˆ˜
     /// </summary>
     private bool bOnce = true;
 
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// °ÔÀÓ ½ÃÀÛ ÃÖÃÊ¿¡ ÇÑ¹ø¸¸ ºÒ·ÁÁö´Â ÇÔ¼ö
+    /// ê²Œì„ ì‹œì‘ ìµœì´ˆì— í•œë²ˆë§Œ ë¶ˆë ¤ì§€ëŠ” í•¨ìˆ˜
     /// </summary>
     private void StartSetting()
     {
@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator LateStart()
     {
-        //¸ğµç »óÅÂµéÀÌ ÃÊ±âÈ­ µÈ ÀÌÈÄ¿¡ LoadÇØÁØ´Ù.
+        //ëª¨ë“  ìƒíƒœë“¤ì´ ì´ˆê¸°í™” ëœ ì´í›„ì— Loadí•´ì¤€ë‹¤.
         for (int i = 0; i < 2; i++)
             yield return new WaitForEndOfFrame();
         StateManager.LoadState();

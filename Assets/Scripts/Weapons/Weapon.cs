@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 /// <summary>
-/// ¹«±âÀÇ °ø°İ Çàµ¿ µ¥ÀÌÅÍ
+/// ë¬´ê¸°ì˜ ê³µê²© í–‰ë™ ë°ì´í„°
 /// </summary>
 [Serializable]
 public class DoActionData
@@ -40,7 +40,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected TrailRenderer trail;
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾îÀÎÁö ¾Æ´ÑÁö ±¸ºĞÇØÁÖ´Â º¯¼ö
+    /// í”Œë ˆì´ì–´ì¸ì§€ ì•„ë‹Œì§€ êµ¬ë¶„í•´ì£¼ëŠ” ë³€ìˆ˜
     /// </summary>
     protected bool isPlayer;
 
@@ -51,7 +51,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void Awake()
     {
-        //¹«±â ÁÖÀÎ Ä³¸¯ÅÍ Ã£±â
+        //ë¬´ê¸° ì£¼ì¸ ìºë¦­í„° ì°¾ê¸°
         rootObject = transform.parent.gameObject;
         while (rootObject.GetComponent<Character>() == null)
         {
@@ -137,7 +137,7 @@ public abstract class Weapon : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇØ´ç °ø°İ Çàµ¿¿¡ ¸Â´Â ¿òÁ÷ÀÓÀ» Á¦¾î
+    /// í•´ë‹¹ ê³µê²© í–‰ë™ì— ë§ëŠ” ì›€ì§ì„ì„ ì œì–´
     /// </summary>
     /// <param name="actionIndex"></param>
     protected void CheckMovable(int actionIndex)

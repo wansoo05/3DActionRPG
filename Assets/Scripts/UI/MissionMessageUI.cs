@@ -11,7 +11,7 @@ public class MissionMessageUI : MonoBehaviour
     private Button completeBt;
     private Button confirmBt;
 
-    //¹öÆ° ÀÌº¥Æ®¸¦ ÀÌÁßÀ¸·Î ¿¬°áÇØÁÖ±â À§ÇÑ event
+    //ë²„íŠ¼ ì´ë²¤íŠ¸ë¥¼ ì´ì¤‘ìœ¼ë¡œ ì—°ê²°í•´ì£¼ê¸° ìœ„í•œ event
     public event Action OnAcceptBt;
     public event Action OnCompleteBt;
     public event Action OnConfirmBt;
@@ -38,35 +38,35 @@ public class MissionMessageUI : MonoBehaviour
         missionMessage.text = msg;
     }
 
-    //¹Ì¼Ç ¼ö¶ô ¹öÆ°
+    //ë¯¸ì…˜ ìˆ˜ë½ ë²„íŠ¼
     public void AcceptButton()
     {
         OnAcceptBt?.Invoke();
         UIController.Instance.HideMissionUI();
     }
 
-    //¹Ì¼Ç °ÅÀı ¹öÆ°
+    //ë¯¸ì…˜ ê±°ì ˆ ë²„íŠ¼
     public void RejectButton()
     {
         UIController.Instance.HideMissionUI();
     }
 
-    //¹Ì¼Ç ¿Ï·á ¹öÆ°
+    //ë¯¸ì…˜ ì™„ë£Œ ë²„íŠ¼
     public void CompleteButton()
     {
         OnCompleteBt?.Invoke();
     }
 
-    //È®ÀÎ ¹öÆ°
+    //í™•ì¸ ë²„íŠ¼
     public void ConfirmButton()
     {
         OnConfirmBt?.Invoke();
     }
 
     /// <summary>
-    /// ¹Ì¼Ç »óÅÂ¿¡ µû¸¥ ¹öÆ° ¼¼ÆÃ
+    /// ë¯¸ì…˜ ìƒíƒœì— ë”°ë¥¸ ë²„íŠ¼ ì„¸íŒ…
     /// </summary>
-    /// <param name="state">¹Ì¼Ç »óÅÂ ¿­°ÅÇü º¯¼ö</param>
+    /// <param name="state">ë¯¸ì…˜ ìƒíƒœ ì—´ê±°í˜• ë³€ìˆ˜</param>
     public void MissionButtonSetting(MissionState state)
     {
         switch (state)

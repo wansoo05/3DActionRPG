@@ -55,9 +55,9 @@ public class ObjectPoolCreator
                 return obj;
         }
 
-        //ºñÈ°¼ºÈ­µÈ °ÔÀÓ ¿ÀºêÁ§Æ®°¡ ¾ø´Ù¸é
-        ExpandPool(spawnDataName);  //Ç® ´Ã¸®±â
-        return TakeObject(spawnDataName); //´Ù½Ã ¿ÀºêÁ§Æ® ²¨³»±â
+        //ë¹„í™œì„±í™”ëœ ê²Œì„ ì˜¤ë¸Œì íŠ¸ê°€ ì—†ë‹¤ë©´
+        ExpandPool(spawnDataName);  //í’€ ëŠ˜ë¦¬ê¸°
+        return TakeObject(spawnDataName); //ë‹¤ì‹œ ì˜¤ë¸Œì íŠ¸ êº¼ë‚´ê¸°
     }
     
     public void ReturnObject(GameObject obj)

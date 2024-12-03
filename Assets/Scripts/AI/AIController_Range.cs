@@ -40,33 +40,33 @@ public class AIController_Range : AIController
 
         GameObject player = perception.GetPercievedTarget();
 
-        //player °¨Áö°¡ ¾ÈµÇ¾ú´Ù¸é
+        //player ê°ì§€ê°€ ì•ˆë˜ì—ˆë‹¤ë©´
         if (player == null)
         {
-            //¹«±â ÀåÂøÀÌ µÇ¾îÀÖ´Ù¸é ÀåÂø ÇØÁ¦
+            //ë¬´ê¸° ì¥ì°©ì´ ë˜ì–´ìˆë‹¤ë©´ ì¥ì°© í•´ì œ
             if (weapon.UnarmedMode == false)
                 weapon.SetUnarmedMode();
 
             SetState(State.Patrol);
             return;
         }
-        //player°¡ °¨Áö°¡ µÆ´Ù¸é
+        //playerê°€ ê°ì§€ê°€ ëë‹¤ë©´
 
-        //¹«±â ÀåÂøÀ» ¾ÈÇÏ°í ÀÖ´Ù¸é
+        //ë¬´ê¸° ì¥ì°©ì„ ì•ˆí•˜ê³  ìˆë‹¤ë©´
         if (weapon.UnarmedMode)
         {
             SetState(State.Equip);
             return;
         }
 
-        //player¸¦ º¼ ¼ö ¾ø´Ù¸é
+        //playerë¥¼ ë³¼ ìˆ˜ ì—†ë‹¤ë©´
         if (CanSeePlayer(player) == false)
         {
             SetState(State.Approach);
             return;
         }
 
-        //player¿Í °Å¸®°¡ ³Ê¹« °¡±õ´Ù¸é
+        //playerì™€ ê±°ë¦¬ê°€ ë„ˆë¬´ ê°€ê¹ë‹¤ë©´
         if (Vector3.Distance(player.transform.position, transform.position) < retreatDistance)
         {
             SetWarpPosition(player);
@@ -121,10 +121,10 @@ public class AIController_Range : AIController
 
     void SetWarpPosition(GameObject player)
     {
-        // 1. ·£´ı °¢µµ °è»ê (µµ ´ÜÀ§)
+        // 1. ëœë¤ ê°ë„ ê³„ì‚° (ë„ ë‹¨ìœ„)
         float randomAngle = Random.Range(-backAngleRange, +backAngleRange);
 
-        // 2. ÇÃ·¹ÀÌ¾îÀÇ µÚ ¹æÇâ º¤ÅÍ (-playerForward)¸¦ ·£´ı °¢µµ¸¸Å­ È¸Àü
+        // 2. í”Œë ˆì´ì–´ì˜ ë’¤ ë°©í–¥ ë²¡í„° (-playerForward)ë¥¼ ëœë¤ ê°ë„ë§Œí¼ íšŒì „
         Vector3 direction = Quaternion.Euler(0, randomAngle, 0) * -player.transform.forward;
         float distance = Random.Range(backDistance.x, backDistance.y);
 

@@ -186,7 +186,7 @@ public class Boss_Super : Melee
         t.parent = null;
 
 
-        //Åõ»çÃ¼ À§Ä¡ ¼±Á¤
+        //íˆ¬ì‚¬ì²´ ìœ„ì¹˜ ì„ ì •
         Vector3 muzzlePosition = projectileSpawnTransform.position;
         muzzlePosition += rootObject.transform.forward * 0.75f;
         t.position = muzzlePosition;

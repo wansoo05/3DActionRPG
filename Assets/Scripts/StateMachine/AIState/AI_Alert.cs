@@ -34,7 +34,7 @@ public class AI_Alert : AI_Base
 
         patrol.WaitDelay = 1.0f;
         patrol.WaitDelayRandom = 1.0f;
-        //¸ñÀûÁö Á¤ÇÏ´Â ·ÎÁ÷ ¼³Á¤
+        //ëª©ì ì§€ ì •í•˜ëŠ” ë¡œì§ ì„¤ì •
         patrol.OnSetDestination += OnSetDestination;
         patrol.StartMove();     
         
@@ -71,7 +71,7 @@ public class AI_Alert : AI_Base
     private Vector3 OnSetDestination()
     {
         Debug.Log(currentRadius);
-        //ÇÃ·¹ÀÌ¾î ÁÖº¯ÀÇ ·£´ıÇÑ Á¡ ¼±ÅÃ
+        //í”Œë ˆì´ì–´ ì£¼ë³€ì˜ ëœë¤í•œ ì  ì„ íƒ
         float angle = Random.Range(150, 30) * Mathf.Deg2Rad;
         float x = Mathf.Cos(angle) * currentRadius;
         float z = Mathf.Sin(angle) * currentRadius;
@@ -89,7 +89,7 @@ public class AI_Alert : AI_Base
     }
 
     /// <summary>
-    /// Æ¯Á¤ ½Ã°£ ¸¶´Ù Å¸°ÙÀ¸·Î ºÎÅÍ ¶³¾îÁø Á¤µµ¸¦ ·£´ıÇÏ°Ô Á¶ÀıÇÑ´Ù.
+    /// íŠ¹ì • ì‹œê°„ ë§ˆë‹¤ íƒ€ê²Ÿìœ¼ë¡œ ë¶€í„° ë–¨ì–´ì§„ ì •ë„ë¥¼ ëœë¤í•˜ê²Œ ì¡°ì ˆí•œë‹¤.
     /// </summary>
     /// <returns></returns>
     private IEnumerator ChangeRadius()
@@ -102,7 +102,7 @@ public class AI_Alert : AI_Base
     }
 
     /// <summary>
-    /// ·£´ıÇÑ ´ë±â ½Ã°£ÀÌ Áö³ª¸é Approach»óÅÂ·Î ÀüÈ¯
+    /// ëœë¤í•œ ëŒ€ê¸° ì‹œê°„ì´ ì§€ë‚˜ë©´ Approachìƒíƒœë¡œ ì „í™˜
     /// </summary>
     /// <returns></returns>
     private IEnumerator SetApporachMode()

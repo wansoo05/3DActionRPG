@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GhostEffectComponent : MonoBehaviour
 {
-    public String ghostSpawnDataName; // ÀÜ»óÀ¸·Î »ç¿ëµÉ ½ºÆù µ¥ÀÌÅÍ ³×ÀÓ
-    public float spawnInterval = 0.1f; // ÀÜ»ó »ı¼º °£°İ
-    public float ghostLifeTime = 0.3f; // ÀÜ»ó Áö¼Ó ½Ã°£
+    public String ghostSpawnDataName; // ì”ìƒìœ¼ë¡œ ì‚¬ìš©ë  ìŠ¤í° ë°ì´í„° ë„¤ì„
+    public float spawnInterval = 0.1f; // ì”ìƒ ìƒì„± ê°„ê²©
+    public float ghostLifeTime = 0.3f; // ì”ìƒ ì§€ì† ì‹œê°„
 
     private SkinnedMeshRenderer skinnedMeshRenderer;
     private Mesh bakedMesh;
@@ -36,7 +36,7 @@ public class GhostEffectComponent : MonoBehaviour
 
     private void SpawnGhost()
     {
-        skinnedMeshRenderer.BakeMesh(bakedMesh); // ½ºÅ²µå ¸Ş½Ã¸¦ º£ÀÌÅ©ÇÏ¿© Á¤Àû ¸Ş½Ã·Î º¯È¯
+        skinnedMeshRenderer.BakeMesh(bakedMesh); // ìŠ¤í‚¨ë“œ ë©”ì‹œë¥¼ ë² ì´í¬í•˜ì—¬ ì •ì  ë©”ì‹œë¡œ ë³€í™˜
 
         GameObject ghost = Factory.Instance.GetEffect(ghostSpawnDataName);
         ghost.transform.position = transform.position;
@@ -47,12 +47,12 @@ public class GhostEffectComponent : MonoBehaviour
 
         if (ghostMeshFilter != null)
         {
-            ghostMeshFilter.sharedMesh = Instantiate(bakedMesh); // º£ÀÌÅ©µÈ ¸Ş½Ã¸¦ ÀÜ»ó¿¡ ÇÒ´ç
+            ghostMeshFilter.sharedMesh = Instantiate(bakedMesh); // ë² ì´í¬ëœ ë©”ì‹œë¥¼ ì”ìƒì— í• ë‹¹
         }
 
         if (ghostMeshRenderer != null)
         {
-            ghostMeshRenderer.material = material; // ¿ø·¡ Ä³¸¯ÅÍÀÇ ¸ÓÆ¼¸®¾óÀ» ÀÜ»ó¿¡ ÇÒ´ç
+            ghostMeshRenderer.material = material; // ì›ë˜ ìºë¦­í„°ì˜ ë¨¸í‹°ë¦¬ì–¼ì„ ì”ìƒì— í• ë‹¹
             
         }
 

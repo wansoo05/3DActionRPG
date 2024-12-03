@@ -13,31 +13,31 @@ public class NPC : MonoBehaviour
     private Vector3 perceptionPositionOffset = new Vector3(1.0f, 1.2f, 0.0f);
 
     /// <summary>
-    /// NPC°¡ °¡Áö°í ÀÖ´Â ¹Ì¼ÇµéÀÇ ¾ÆÀÌµğµé
+    /// NPCê°€ ê°€ì§€ê³  ìˆëŠ” ë¯¸ì…˜ë“¤ì˜ ì•„ì´ë””ë“¤
     /// </summary>
     [SerializeField]
     private int[] missionIds;
 
     /// <summary>
-    /// NPC ±âº» °íÀ¯ ¸Ş¼¼Áö
+    /// NPC ê¸°ë³¸ ê³ ìœ  ë©”ì„¸ì§€
     /// </summary>
     [SerializeField]
-    private string defaultMessage = "¾È³çÇÏ¼¼¿ä."; //NPC °íÀ¯ ¸Ş¼¼Áö
+    private string defaultMessage = "ì•ˆë…•í•˜ì„¸ìš”."; //NPC ê³ ìœ  ë©”ì„¸ì§€
 
     /// <summary>
-    /// ¹Ì¼Ç »óÅÂ¸¦ ¾Ë·ÁÁÙ Äù½ºÆ® ¸¶Å© ½ºÇÁ¶óÀÌÆ®µé
+    /// ë¯¸ì…˜ ìƒíƒœë¥¼ ì•Œë ¤ì¤„ í€˜ìŠ¤íŠ¸ ë§ˆí¬ ìŠ¤í”„ë¼ì´íŠ¸ë“¤
     /// </summary>
     [SerializeField]
     private Sprite[] markSprites;
 
     private Animator animator;
 
-    //UI°ü·Ã ¸â¹ö
+    //UIê´€ë ¨ ë©¤ë²„
     private Canvas perceptionUI;
     private Canvas questMark;
     private Image questImg;
 
-    //ÇöÀç ÁøÇàÁßÀÎ ¹Ì¼ÇÁ¤º¸
+    //í˜„ì¬ ì§„í–‰ì¤‘ì¸ ë¯¸ì…˜ì •ë³´
     private int currentMissionId;
 
 
@@ -63,7 +63,7 @@ public class NPC : MonoBehaviour
 
     private void Update()
     {
-        //ºôº¸µå UI Ä«¸Ş¶ó ¹æÇâÀ¸·Î È¸Àü½ÃÅ°±â
+        //ë¹Œë³´ë“œ UI ì¹´ë©”ë¼ ë°©í–¥ìœ¼ë¡œ íšŒì „ì‹œí‚¤ê¸°
         if (perceptionUI != null)
         {
             perceptionUI.transform.localPosition = perceptionPositionOffset;
@@ -76,32 +76,32 @@ public class NPC : MonoBehaviour
         }
 
 
-        //Player °¨ÁöÇÑ °æ¿ì
+        //Player ê°ì§€í•œ ê²½ìš°
         Transform player;
         if (DetectPlayer(out player))
         {
             perceptionUI.gameObject.SetActive(true);
 
-            //ÇÃ·¹ÀÌ¾î¸¦ ¹Ù¶óº¸°Ô È¸Àü
+            //í”Œë ˆì´ì–´ë¥¼ ë°”ë¼ë³´ê²Œ íšŒì „
             Vector3 direction = player.transform.position - transform.position; 
             direction.y = 0.0f;
 
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction.normalized), 5.0f * Time.deltaTime);
 
-            //'T' Å°¸¦ ´©¸£¸é ¹Ì¼ÇUI º¸¿©ÁÖ±â
+            //'T' í‚¤ë¥¼ ëˆ„ë¥´ë©´ ë¯¸ì…˜UI ë³´ì—¬ì£¼ê¸°
             if (Input.GetKeyDown(KeyCode.T))
             {
                 UIController.Instance.ShowMissionUI();
             }
         }
-        //°¨Áö¸øÇÑ °æ¿ì
+        //ê°ì§€ëª»í•œ ê²½ìš°
         else
         {
             perceptionUI.gameObject.SetActive(false);
         }
 
-        //¹Ì¼Ç »óÅÂ¿¡ µû¸¥ ÇöÀç ÁøÇà °¡´ÉÇÑ ¹Ì¼Ç ¾ÆÀÌµğ Ã£±â
-        currentMissionId = -1; //ÇöÀç ÁøÇà °¡´ÉÇÑ ¹Ì¼ÇÀÌ ¾øÀ¸¸é -1
+        //ë¯¸ì…˜ ìƒíƒœì— ë”°ë¥¸ í˜„ì¬ ì§„í–‰ ê°€ëŠ¥í•œ ë¯¸ì…˜ ì•„ì´ë”” ì°¾ê¸°
+        currentMissionId = -1; //í˜„ì¬ ì§„í–‰ ê°€ëŠ¥í•œ ë¯¸ì…˜ì´ ì—†ìœ¼ë©´ -1
         foreach (int id in missionIds)
         {
             if (MissionController.Instance.IsPossibleMission(id))
@@ -113,9 +113,9 @@ public class NPC : MonoBehaviour
     }
 
     /// <summary>
-    /// /// Player°¡ ¹üÀ§ ¹üÀ§ ³»¿¡ ÀÖÀ¸¸é True ¾øÀ¸¸é False
+    /// /// Playerê°€ ë²”ìœ„ ë²”ìœ„ ë‚´ì— ìˆìœ¼ë©´ True ì—†ìœ¼ë©´ False
     /// </summary>
-    /// <param name="player">¹üÀ§ ¾È¿¡ ÀÖ´Â Player ¹İÈ¯</param>
+    /// <param name="player">ë²”ìœ„ ì•ˆì— ìˆëŠ” Player ë°˜í™˜</param>
     /// <returns></returns>
     private bool DetectPlayer(out Transform player)
     {
@@ -123,7 +123,7 @@ public class NPC : MonoBehaviour
 
         foreach (Collider collider in colliders)
         {
-            //PlayerÀÌ¶ó¸é
+            //Playerì´ë¼ë©´
             if (collider.transform.GetComponent<Player>() != null)
             {
                 player = collider.transform;
@@ -135,7 +135,7 @@ public class NPC : MonoBehaviour
     }
 
     /// <summary>
-    /// ¹Ì¼Ç »óÅÂ¿¡ µû¸¥ UIµé º¯°æ
+    /// ë¯¸ì…˜ ìƒíƒœì— ë”°ë¥¸ UIë“¤ ë³€ê²½
     /// </summary>
     private void LateUpdate()
     {
@@ -146,7 +146,7 @@ public class NPC : MonoBehaviour
     
     private void Update_QuestUIByMission()
     {
-        //³²¾Æ ÀÖ´Â ¹Ì¼ÇÀÌ ¾øÀ¸¸é Äù½ºÆ® ¸¶Å©¸¦ ºñÈ°¼ºÈ­ ½ÃÅ°°í Äù½ºÆ® ¸¶Å© ¾÷µ¥ÀÌÆ®¸¦ ÇÏÁö ¾Ê´Â´Ù.
+        //ë‚¨ì•„ ìˆëŠ” ë¯¸ì…˜ì´ ì—†ìœ¼ë©´ í€˜ìŠ¤íŠ¸ ë§ˆí¬ë¥¼ ë¹„í™œì„±í™” ì‹œí‚¤ê³  í€˜ìŠ¤íŠ¸ ë§ˆí¬ ì—…ë°ì´íŠ¸ë¥¼ í•˜ì§€ ì•ŠëŠ”ë‹¤.
         if (IsEmptyMission())
         {
             questMark.gameObject.SetActive(false);
@@ -154,15 +154,15 @@ public class NPC : MonoBehaviour
             return;
         }
 
-        //ÇöÀç ¹Ì¼ÇÀ» ÁøÇàÁßÀÌ¶ó¸é
+        //í˜„ì¬ ë¯¸ì…˜ì„ ì§„í–‰ì¤‘ì´ë¼ë©´
         if (MissionController.Instance.GetMissionState(currentMissionId) == MissionState.Active)
         {
-            //¹Ì¼ÇÀ» ¿Ï·áÇßÀ» ¶§ ¸¶Å© ¾÷µ¥ÀÌÆ®
+            //ë¯¸ì…˜ì„ ì™„ë£Œí–ˆì„ ë•Œ ë§ˆí¬ ì—…ë°ì´íŠ¸
             if (MissionController.Instance.IsMissionComplete(currentMissionId))
             {
                 questImg.sprite = markSprites[2];
             }
-            //¹Ì¼ÇÁßÀÏ ¶§ ¸¶Å© ¾÷µ¥ÀÌÆ®
+            //ë¯¸ì…˜ì¤‘ì¼ ë•Œ ë§ˆí¬ ì—…ë°ì´íŠ¸
             else
             {
                 questImg.sprite = markSprites[1];
@@ -177,21 +177,21 @@ public class NPC : MonoBehaviour
     private void Update_MissionMessage()
     {
         Transform player;
-        //ÇÃ·¹ÀÌ¾î°¡ °¨ÁöµÇÁö ¾ÊÀ¸¸é ¹Ì¼Ç ¸Ş¼¼Áö¸¦ ¾÷µ¥ÀÌÆ® ½ÃÅ°Áö ¾Ê´Â´Ù.
+        //í”Œë ˆì´ì–´ê°€ ê°ì§€ë˜ì§€ ì•Šìœ¼ë©´ ë¯¸ì…˜ ë©”ì„¸ì§€ë¥¼ ì—…ë°ì´íŠ¸ ì‹œí‚¤ì§€ ì•ŠëŠ”ë‹¤.
         if (DetectPlayer(out player) == false)
             return;
 
-        //³²¾Æ ÀÖ´Â ¹Ì¼ÇÀÌ ÀÖ´Ù¸é
+        //ë‚¨ì•„ ìˆëŠ” ë¯¸ì…˜ì´ ìˆë‹¤ë©´
         if (IsEmptyMission() == false)
-            //ÇöÀç ¹Ì¼ÇÀÇ ¸Ş¼¼Áö¸¦ ¾÷µ¥ÀÌÆ®½ÃÅ²´Ù.
+            //í˜„ì¬ ë¯¸ì…˜ì˜ ë©”ì„¸ì§€ë¥¼ ì—…ë°ì´íŠ¸ì‹œí‚¨ë‹¤.
             MissionController.Instance.UpdateMissionMessage(currentMissionId);
         else
-            //³²ÀÌ ÀÖ´Â ¹Ì¼ÇÀÌ ¾øÀ¸¸é NPC °íÀ¯ ¸Ş¼¼Áö¸¦ ¾÷µ¥ÀÌÆ®½ÃÅ²´Ù.
+            //ë‚¨ì´ ìˆëŠ” ë¯¸ì…˜ì´ ì—†ìœ¼ë©´ NPC ê³ ìœ  ë©”ì„¸ì§€ë¥¼ ì—…ë°ì´íŠ¸ì‹œí‚¨ë‹¤.
             UIController.Instance.UpdateMissionMessage(defaultMessage);
     }
 
     /// <summary>
-    /// ³²¾Æ ÀÖ´Â ¹Ì¼ÇÀÌ ÀÖÀ¸¸é false ¾øÀ¸¸é true
+    /// ë‚¨ì•„ ìˆëŠ” ë¯¸ì…˜ì´ ìˆìœ¼ë©´ false ì—†ìœ¼ë©´ true
     /// </summary>
     /// <returns></returns>
     private bool IsEmptyMission()
@@ -201,7 +201,7 @@ public class NPC : MonoBehaviour
         return false;
     }
 
-    //¾Ö´Ï¸ŞÀÌ¼Ç ÀÌº¥Æ® : NPC ¸ğ¼Ç ³¡À» °¨ÁöÇÏ¿© ·£´ı ¸ğ¼Ç Àç»ı
+    //ì• ë‹ˆë©”ì´ì…˜ ì´ë²¤íŠ¸ : NPC ëª¨ì…˜ ëì„ ê°ì§€í•˜ì—¬ ëœë¤ ëª¨ì…˜ ì¬ìƒ
     private void End_Motion()
     {
         motionType = UnityEngine.Random.Range(0, 3);
@@ -209,7 +209,7 @@ public class NPC : MonoBehaviour
     }
 
     /// <summary>
-    /// ¹Ì¼Ç UIÀÇ accept button¿¡ ¿¬°áÇÑ ÀÌº¥Æ® ÇÔ¼ö
+    /// ë¯¸ì…˜ UIì˜ accept buttonì— ì—°ê²°í•œ ì´ë²¤íŠ¸ í•¨ìˆ˜
     /// </summary>
     public void AcceptButton()
     {
@@ -217,7 +217,7 @@ public class NPC : MonoBehaviour
     }
 
     /// <summary>
-    /// ¹Ì¼Ç UIÀÇ complete button¿¡ ¿¬°áÇÑ ÀÌº¥Æ® ÇÔ¼ö
+    /// ë¯¸ì…˜ UIì˜ complete buttonì— ì—°ê²°í•œ ì´ë²¤íŠ¸ í•¨ìˆ˜
     /// </summary>
     private void CompleteButton()
     {
@@ -233,7 +233,7 @@ public class NPC : MonoBehaviour
     }
 
     /// <summary>
-    /// ¹Ì¼Ç UIÀÇ confirm button¿¡ ¿¬°áÇÑ ÀÌº¥Æ® ÇÔ¼ö
+    /// ë¯¸ì…˜ UIì˜ confirm buttonì— ì—°ê²°í•œ ì´ë²¤íŠ¸ í•¨ìˆ˜
     /// </summary>
     private void ConfirmButton()
     {

@@ -23,7 +23,7 @@ public class HealCircle : MonoBehaviour
         if (other.gameObject.CompareTag("Player") == false)
             return;
 
-        //È¸º¹ ¾Æ¿ì¶ó »ı¼º
+        //íšŒë³µ ì•„ìš°ë¼ ìƒì„±
         if (auraPrefab == null) return;
 
 
@@ -43,7 +43,7 @@ public class HealCircle : MonoBehaviour
         if (other.gameObject.CompareTag("Player") == false)
             return;
 
-        //È¸º¹ ¸ÅÄ¿´ÏÁò
+        //íšŒë³µ ë§¤ì»¤ë‹ˆì¦˜
         HealthPointComponent health = other.transform.GetComponent<HealthPointComponent>();
         if (health == null) return;
         health.Heal(amount * Time.deltaTime);

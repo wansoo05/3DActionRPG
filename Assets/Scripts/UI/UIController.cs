@@ -23,7 +23,7 @@ public class UIController : MonoBehaviour
     private PlayableDirector pd;
 
     /// <summary>
-    /// Å¸ÀÓ¶óÀÎÀÌ ÇÃ·¹ÀÌ µÇ°íÀÖ´ÂÁö ¾Ë ¼ö ÀÖ´Â º¯¼ö
+    /// íƒ€ì„ë¼ì¸ì´ í”Œë ˆì´ ë˜ê³ ìˆëŠ”ì§€ ì•Œ ìˆ˜ ìˆëŠ” ë³€ìˆ˜
     /// </summary>
     private bool bTimelinePlay;
     private Canvas missionMessageCanvas;

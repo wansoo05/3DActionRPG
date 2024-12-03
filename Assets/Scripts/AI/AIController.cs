@@ -14,25 +14,25 @@ public abstract class AIController : MonoBehaviour
     }
 
     /// <summary>
-    /// °ø°İ ¹üÀ§(radius)
+    /// ê³µê²© ë²”ìœ„(radius)
     /// </summary>
     [SerializeField]
     protected float attackRange = 1.5f;
 
     /// <summary>
-    /// °ø°İ ÈÄ ±âº» µô·¹ÀÌ ½Ã°£(ÃÊ)
+    /// ê³µê²© í›„ ê¸°ë³¸ ë”œë ˆì´ ì‹œê°„(ì´ˆ)
     /// </summary>
     [SerializeField]
     protected float attackDelay = 1.0f;
 
     /// <summary>
-    /// attackDelay¿¡ ·£´ı º¯È­ °ª(ÃÊ)
+    /// attackDelayì— ëœë¤ ë³€í™” ê°’(ì´ˆ)
     /// </summary>
     [SerializeField]
     protected float attackDelayRandom = 0.5f;
 
     /// <summary>
-    /// ÀÚ½ÅÀÇ ¹«±â Á¾·ù
+    /// ìì‹ ì˜ ë¬´ê¸° ì¢…ë¥˜
     /// </summary>
     [SerializeField]
     protected WeaponType myWeaponType;
@@ -50,7 +50,7 @@ public abstract class AIController : MonoBehaviour
     protected StateMachine<AIController> stateMachine;
 
     /// <summary>
-    /// ±âº» °ø°İ ÆĞÅÏ °³¼ö
+    /// ê¸°ë³¸ ê³µê²© íŒ¨í„´ ê°œìˆ˜
     /// </summary>
     protected int maxAction = 1;
     public int MaxAction { get => maxAction; }
@@ -141,7 +141,7 @@ public abstract class AIController : MonoBehaviour
     }
 
     /// <summary>
-    /// Å¸°ÙÀÌ Æ¯Á¤ ¹üÀ§ ¾È¿¡ ÀÖ´ÂÁö ¾Ë¾Æ³»´Â ÇÔ¼ö
+    /// íƒ€ê²Ÿì´ íŠ¹ì • ë²”ìœ„ ì•ˆì— ìˆëŠ”ì§€ ì•Œì•„ë‚´ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <returns></returns>
     protected bool IsTargetInRange(float range)
@@ -156,13 +156,13 @@ public abstract class AIController : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇöÀç »óÅÂ¿¡¼­ ¾÷µ¥ÀÌÆ® ·ÎÁ÷À» »ç¿ëÇÒ °ÍÀÎÁö
+    /// í˜„ì¬ ìƒíƒœì—ì„œ ì—…ë°ì´íŠ¸ ë¡œì§ì„ ì‚¬ìš©í•  ê²ƒì¸ì§€
     /// </summary>
     /// <returns></returns>
     protected abstract bool CheckMode();
 
     /// <summary>
-    /// AIÀÇ ±âº»ÀûÀÎ »óÅÂ ¾÷µ¥ÀÌÆ® ·ÎÁ÷
+    /// AIì˜ ê¸°ë³¸ì ì¸ ìƒíƒœ ì—…ë°ì´íŠ¸ ë¡œì§
     /// </summary>
     protected abstract void Update_State();
 

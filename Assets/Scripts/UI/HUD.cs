@@ -32,17 +32,17 @@ public class HUD : MonoBehaviour
     private WeaponComponent weapon;
     private SkillComponont skill;
 
-    //ActionUIÀ§Ä¡ Ã£±â À§ÇÑ Dictionary
+    //ActionUIìœ„ì¹˜ ì°¾ê¸° ìœ„í•œ Dictionary
     private Dictionary<SkillType, int> dic;
 
 
     private void Awake()
     { 
-        //WeaponImageUIÃ£±â
+        //WeaponImageUIì°¾ê¸°
         weaponImg = ActionUIs[0].transform.FindChildByName("Weapon").GetComponent<Image>();
         weaponImg.enabled = false;
 
-        //SkillImageUIÃ£±â
+        //SkillImageUIì°¾ê¸°
         for (int i = 1; i < ActionUIs.Length; i++)
         {
             string backName = "Skill" + i.ToString() + "_Background";
@@ -91,7 +91,7 @@ public class HUD : MonoBehaviour
     {
         Image img = null;
 
-        //0ÀÏ ¶§´Â HP¹Ù, 1ÀÏ ¶§´Â MP¹Ù ¾÷µ¥ÀÌÆ®
+        //0ì¼ ë•ŒëŠ” HPë°”, 1ì¼ ë•ŒëŠ” MPë°” ì—…ë°ì´íŠ¸
         if (type == 0)
         {
             img = healthBar;
@@ -135,7 +135,7 @@ public class HUD : MonoBehaviour
             return;
         }
 
-        //¹«±â ¾ÆÀÌÄÜ º¯°æ
+        //ë¬´ê¸° ì•„ì´ì½˜ ë³€ê²½
         if (playerWeapon.iconImage == null)
         {
             weaponImg.enabled = false;

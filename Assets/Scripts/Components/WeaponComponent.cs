@@ -7,12 +7,12 @@ public enum WeaponType
     Unarmed = 0, Fist, Warrior, Katana, Dual, Wand, Boss, Boss_Super, Max,
 }
 /// <summary>
-/// ÇØ´ç ¹«±â¿¡°Ô ¸í·ÉÀ» ³»·ÁÁÖ´Â ÄÄÆ÷³ÍÆ®
+/// í•´ë‹¹ ë¬´ê¸°ì—ê²Œ ëª…ë ¹ì„ ë‚´ë ¤ì£¼ëŠ” ì»´í¬ë„ŒíŠ¸
 /// </summary>
 public class WeaponComponent : MonoBehaviour, IStateUpdatable
 {
     /// <summary>
-    /// ¹«±â PrefabµéÀ» ´ãÀ» ¹è¿­
+    /// ë¬´ê¸° Prefabë“¤ì„ ë‹´ì„ ë°°ì—´
     /// </summary>
     [SerializeField]
     private GameObject[] originPrefabs;
@@ -26,15 +26,15 @@ public class WeaponComponent : MonoBehaviour, IStateUpdatable
     public WeaponType Type { get => type; }
 
     /// <summary>
-    /// ¹«±â°¡ ¹Ù²¼À» ¶§ ¾Ë·ÁÁÖ±â À§ÇÑ ÀÌº¥Æ®(¿ÉÀú¹ö ÆĞÅÏ)
+    /// ë¬´ê¸°ê°€ ë°”ê¼ˆì„ ë•Œ ì•Œë ¤ì£¼ê¸° ìœ„í•œ ì´ë²¤íŠ¸(ì˜µì €ë²„ íŒ¨í„´)
     /// </summary>
     public event Action<WeaponType, WeaponType> OnWeaponTypeChanged;
     /// <summary>
-    /// ÀåÂøÀÌ ³¡³µÀ» ¶§ ¾Ë·ÁÁÖ±â À§ÇÑ ÀÌº¥Æ®
+    /// ì¥ì°©ì´ ëë‚¬ì„ ë•Œ ì•Œë ¤ì£¼ê¸° ìœ„í•œ ì´ë²¤íŠ¸
     /// </summary>
     public event Action OnEndEquip;
     /// <summary>
-    /// °ø°İÀÌ ³¡³µÀ» ¶§ ¾Ë·ÁÁÖ±â À§ÇÑ ÀÌº¥Æ®
+    /// ê³µê²©ì´ ëë‚¬ì„ ë•Œ ì•Œë ¤ì£¼ê¸° ìœ„í•œ ì´ë²¤íŠ¸
     /// </summary>
     public event Action OnEndDoAction;
 
@@ -51,7 +51,7 @@ public class WeaponComponent : MonoBehaviour, IStateUpdatable
     private bool bCanHit;
 
     /// <summary>
-    /// ¹«±â¸¦ ÀåÂøÁßÀÎÁö ¾Ë±âÀ§ÇÑ ÇÔ¼ö
+    /// ë¬´ê¸°ë¥¼ ì¥ì°©ì¤‘ì¸ì§€ ì•Œê¸°ìœ„í•œ í•¨ìˆ˜
     /// </summary>
     /// <returns></returns>
     public bool IsEquippingMode()
@@ -67,7 +67,7 @@ public class WeaponComponent : MonoBehaviour, IStateUpdatable
     }
 
     /// <summary>
-    /// ÇöÀç ¹«±â°¡ °ø°İÇÏ°í ÀÖ´Â »óÅÂÀÎÁö ¾Ë±â À§ÇÑ ÇÔ¼ö
+    /// í˜„ì¬ ë¬´ê¸°ê°€ ê³µê²©í•˜ê³  ìˆëŠ” ìƒíƒœì¸ì§€ ì•Œê¸° ìœ„í•œ í•¨ìˆ˜
     /// </summary>
     /// <returns></returns>
     public bool IsAttacking()
@@ -186,24 +186,24 @@ public class WeaponComponent : MonoBehaviour, IStateUpdatable
     }
 
     /// <summary>
-    /// ¹«±â ±³Ã¼¸¦ À§ÇÑ ÇÔ¼ö
+    /// ë¬´ê¸° êµì²´ë¥¼ ìœ„í•œ í•¨ìˆ˜
     /// </summary>
     /// <param name="type"></param>
     private void SetMode(WeaponType type)
     {
-        //±³Ã¼ÇÏ·Á´Â ¹«±â Á¾·ù¿Í ÇöÀç ³ªÀÇ ¹«±â°¡ °°´Ù¸é ¹«±â ÀåÂøÀ» ÇØÁ¦ÇÑ´Ù.
+        //êµì²´í•˜ë ¤ëŠ” ë¬´ê¸° ì¢…ë¥˜ì™€ í˜„ì¬ ë‚˜ì˜ ë¬´ê¸°ê°€ ê°™ë‹¤ë©´ ë¬´ê¸° ì¥ì°©ì„ í•´ì œí•œë‹¤.
         if (this.type == type)
         {
             SetUnarmedMode();
             return;
         }
-        //¹«±â ÀåÂøÀ» ÇÒ ¶§ ÇöÀç ¹«±â°¡ ÀåÂøµÈ »óÅÂ¶ó¸é ÇöÀç ¹«±â´Â ÀåÂø ÇØÁ¦.
+        //ë¬´ê¸° ì¥ì°©ì„ í•  ë•Œ í˜„ì¬ ë¬´ê¸°ê°€ ì¥ì°©ëœ ìƒíƒœë¼ë©´ í˜„ì¬ ë¬´ê¸°ëŠ” ì¥ì°© í•´ì œ.
         else if (UnarmedMode == false)
         {
             weaponTable[this.type].UnEquip();
         }
 
-        //nullÃ¼Å©
+        //nullì²´í¬
         if (weaponTable[type] == null)
         {
             SetUnarmedMode();
@@ -217,7 +217,7 @@ public class WeaponComponent : MonoBehaviour, IStateUpdatable
     }
 
     /// <summary>
-    /// ¹«±â Å¸ÀÔÀ» º¯°æÇÏ°í ¹«±â º¯°æÀ» ÇßÀ½À» ÀÌº¥Æ®·Î ¾Ë·ÁÁØ´Ù.
+    /// ë¬´ê¸° íƒ€ì…ì„ ë³€ê²½í•˜ê³  ë¬´ê¸° ë³€ê²½ì„ í–ˆìŒì„ ì´ë²¤íŠ¸ë¡œ ì•Œë ¤ì¤€ë‹¤.
     /// </summary>
     /// <param name="type"></param>
     private void ChangeType(WeaponType type)
@@ -244,7 +244,7 @@ public class WeaponComponent : MonoBehaviour, IStateUpdatable
     }
 
     /// <summary>
-    /// Æ¯¼öÇÑ »óÈ²¿¡¼­ ¾ÈÀüÇÏ°Ô ÀåÂøÀ» ³¡¸¶ÃÄÁÖ´Â ÇÔ¼ö
+    /// íŠ¹ìˆ˜í•œ ìƒí™©ì—ì„œ ì•ˆì „í•˜ê²Œ ì¥ì°©ì„ ëë§ˆì³ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void Secure_EndEquip()
     {
@@ -254,9 +254,9 @@ public class WeaponComponent : MonoBehaviour, IStateUpdatable
     }
 
     /// <summary>
-    /// ÇØ´ç ¹«±â¿¡°Ô °ø°İÀ» ¸í·É³»·ÁÁÖ´Â ÇÔ¼ö
+    /// í•´ë‹¹ ë¬´ê¸°ì—ê²Œ ê³µê²©ì„ ëª…ë ¹ë‚´ë ¤ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
-    /// <param name="actionIndex">AIÀÇ °ø°İ ÆĞÅÏ ±¸ºĞ</param>
+    /// <param name="actionIndex">AIì˜ ê³µê²© íŒ¨í„´ êµ¬ë¶„</param>
     public void DoAction(int actionIndex = 0)
     {
         if (weaponTable[type] == null)
@@ -292,7 +292,7 @@ public class WeaponComponent : MonoBehaviour, IStateUpdatable
     }
 
     /// <summary>
-    /// Æ¯¼öÇÑ »óÈ²¿¡¼­ ¾ÈÀüÇÏ°Ô °ø°İÀ» ³¡¸¶ÃÄÁÖ´Â ÇÔ¼ö
+    /// íŠ¹ìˆ˜í•œ ìƒí™©ì—ì„œ ì•ˆì „í•˜ê²Œ ê³µê²©ì„ ëë§ˆì³ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
     public void Secure_EndDoAction()
     {

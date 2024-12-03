@@ -7,7 +7,7 @@ public class LoadSceneManager : MonoBehaviour
     private static LoadSceneManager instance;
 
     /// <summary>
-    /// ¾À ÀüÈ¯½Ã ÀÓÀÇÀÇ ÁøÇàµµ¸¦ ³ªÅ¸³»±â À§ÇÑ º¯¼ö 0.0f ~ 1.0f »çÀÌ °ª
+    /// ì”¬ ì „í™˜ì‹œ ì„ì˜ì˜ ì§„í–‰ë„ë¥¼ ë‚˜íƒ€ë‚´ê¸° ìœ„í•œ ë³€ìˆ˜ 0.0f ~ 1.0f ì‚¬ì´ ê°’
     /// </summary>
     public float ProgressValue { get; private set; }
 
@@ -34,9 +34,9 @@ public class LoadSceneManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ºñµ¿±â ¾À ÀüÈ¯½Ã ·Îµù °ÔÀÌÁö¸¦ µô·¹ÀÌ °É¾îÁÖ´Â ÄÚ·çÆ¾ ÇÔ¼ö
+    /// ë¹„ë™ê¸° ì”¬ ì „í™˜ì‹œ ë¡œë”© ê²Œì´ì§€ë¥¼ ë”œë ˆì´ ê±¸ì–´ì£¼ëŠ” ì½”ë£¨í‹´ í•¨ìˆ˜
     /// </summary>
-    /// <param name="name">¾À ÀüÈ¯µÉ ¾À ³×ÀÓ</param>
+    /// <param name="name">ì”¬ ì „í™˜ë  ì”¬ ë„¤ì„</param>
     /// <returns></returns>
     private IEnumerator LoadingAsync(string name)
     {
@@ -47,14 +47,14 @@ public class LoadSceneManager : MonoBehaviour
         float time2 = 0.0f;
         float startValue = 0.0f;
         AsyncOperation operation = SceneManager.LoadSceneAsync(name,LoadSceneMode.Single);
-        //·ÎµùÀÌ ¿Ï·áµÇµµ ¾À È°¼ºÈ­ ¾ÈÇÔ.
+        //ë¡œë”©ì´ ì™„ë£Œë˜ë„ ì”¬ í™œì„±í™” ì•ˆí•¨.
         operation.allowSceneActivation = false;
 
         while(!operation.isDone)
         {
             if (operation.progress < 0.9f)
             {
-                //Å¸ÀÓ ½ºÄÉÀÏ¿¡ ¿µÇâÀ» ¹ŞÁö ¾Ê±â À§ÇØ¼­
+                //íƒ€ì„ ìŠ¤ì¼€ì¼ì— ì˜í–¥ì„ ë°›ì§€ ì•Šê¸° ìœ„í•´ì„œ
                 time1 += Time.unscaledDeltaTime;
                 ProgressValue = Mathf.Lerp(ProgressValue, operation.progress, time1);
                 startValue = ProgressValue;
@@ -66,7 +66,7 @@ public class LoadSceneManager : MonoBehaviour
                 ProgressValue = Mathf.Lerp(startValue, 1.0f, t);
             }
 
-            //·Îµù¹Ù°¡ ´Ù Ã¤¿öÁö¸é ¾À ÀüÈ¯
+            //ë¡œë”©ë°”ê°€ ë‹¤ ì±„ì›Œì§€ë©´ ì”¬ ì „í™˜
             if (ProgressValue >= 1.0f)
             {
                 operation.allowSceneActivation = true;

@@ -38,7 +38,7 @@ public class MagicPointComponent : MonoBehaviour, IStateUpdatable
     {
         if (currMagicPoint - amount < 0.0f)
         {
-            Debug.Log("¸¶³ª°¡ ºÎÁ·ÇÕ´Ï´Ù.");
+            Debug.Log("ë§ˆë‚˜ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.");
             return false;
         }
 

@@ -65,15 +65,15 @@ public class SpawnData_Window : EditorWindow
                 {
                     bCheck &= (obj.SpawnPrefab.GetComponent<Character>() != null);
 
-                    AssetDatabase.CreateAsset(obj, path);   //¿¡¼Â»ı¼º
-                    AssetDatabase.SaveAssets();             //¿¡¼ÂÀúÀå
-                    AssetDatabase.Refresh();                //»õ·Î°íÄ§
+                    AssetDatabase.CreateAsset(obj, path);   //ì—ì…‹ìƒì„±
+                    AssetDatabase.SaveAssets();             //ì—ì…‹ì €ì¥
+                    AssetDatabase.Refresh();                //ìƒˆë¡œê³ ì¹¨
 
-                    EditorUtility.FocusProjectWindow();     //Æ÷Ä¿½º ÀÌµ¿
+                    EditorUtility.FocusProjectWindow();     //í¬ì»¤ìŠ¤ ì´ë™
 
-                    Selection.activeObject = obj;          //»ı¼ºÇÑ ¿ÀºêÁ§Æ®·Î Ä¿¼­ ÀÌµ¿
+                    Selection.activeObject = obj;          //ìƒì„±í•œ ì˜¤ë¸Œì íŠ¸ë¡œ ì»¤ì„œ ì´ë™
 
-                    EditorUtility.DisplayDialog("Create SO File", "»ı¼ºÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.", "È®ÀÎ");
+                    EditorUtility.DisplayDialog("Create SO File", "ìƒì„±ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", "í™•ì¸");
                 }
 
             }

@@ -9,7 +9,7 @@ public enum SkillType
 }
 
 /// <summary>
-/// ÇØ´ç Skill¿¡ ¸í·ÉÀ» ³»·ÁÁÖ´Â ÄÄÆ÷³ÍÆ®
+/// í•´ë‹¹ Skillì— ëª…ë ¹ì„ ë‚´ë ¤ì£¼ëŠ” ì»´í¬ë„ŒíŠ¸
 /// </summary>
 public class SkillComponont : MonoBehaviour
 {
@@ -26,9 +26,9 @@ public class SkillComponont : MonoBehaviour
 
     public event Action<int> OnPlaySlash;
     public event Action OnEndSlash;
-    //¹«±â°¡ º¯°æµÇ¾úÀ» ¶§ ¾Ë·ÁÁÖ´Â ÀÌº¥Æ®(¿ÉÀú¹ö ÆĞÅÏ)
+    //ë¬´ê¸°ê°€ ë³€ê²½ë˜ì—ˆì„ ë•Œ ì•Œë ¤ì£¼ëŠ” ì´ë²¤íŠ¸(ì˜µì €ë²„ íŒ¨í„´)
     public event Action<SkillType, SkillType> OnSkillTypeChanged;
-    //¹«±â°¡ µî·ÏÀÌ µÇ¾úÀ» ¶§ ¾Ë·ÁÁÖ´Â ÀÌº¥Æ®
+    //ë¬´ê¸°ê°€ ë“±ë¡ì´ ë˜ì—ˆì„ ë•Œ ì•Œë ¤ì£¼ëŠ” ì´ë²¤íŠ¸
     public event Action<SkillType, SkillType> OnSkillRegisted;
 
     public bool NoneMode { get => type == SkillType.None; }
@@ -114,10 +114,10 @@ public class SkillComponont : MonoBehaviour
     }
 
     /// <summary>
-    /// ¹«±â¸¦ µî·ÏÇØÁÖ´Â ÇÔ¼ö
+    /// ë¬´ê¸°ë¥¼ ë“±ë¡í•´ì£¼ëŠ” í•¨ìˆ˜
     /// </summary>
-    /// <param name="type1">Ã¹ ¹øÂ° ½ºÅ³ Å¸ÀÔ</param>
-    /// <param name="type2">µÎ ¹øÂ° ½ºÅ³ Å¸ÀÔ</param>
+    /// <param name="type1">ì²« ë²ˆì§¸ ìŠ¤í‚¬ íƒ€ì…</param>
+    /// <param name="type2">ë‘ ë²ˆì§¸ ìŠ¤í‚¬ íƒ€ì…</param>
     private void RegistSkill(SkillType type1, SkillType type2)
     {
         SetNoneMode();
@@ -231,7 +231,7 @@ public class SkillComponont : MonoBehaviour
     }
 
     /// <summary>
-    /// °ø±â ÀúÇ×°ª µ¹·ÁÁÖ´Â ¾Ö´Ï¸ŞÀÌ¼Ç ÀÌº¥Æ® ÇÔ¼ö
+    /// ê³µê¸° ì €í•­ê°’ ëŒë ¤ì£¼ëŠ” ì• ë‹ˆë©”ì´ì…˜ ì´ë²¤íŠ¸ í•¨ìˆ˜
     /// </summary>
     private void ResetDrag()
     {
@@ -251,10 +251,10 @@ public class SkillComponont : MonoBehaviour
     }
 
     /// <summary>
-    /// ¹«±â º¯°æ¿¡ µû¸¥ ½ºÅ³ µî·Ï
+    /// ë¬´ê¸° ë³€ê²½ì— ë”°ë¥¸ ìŠ¤í‚¬ ë“±ë¡
     /// </summary>
-    /// <param name="type1">ÀÌÀü ¹«±â</param>
-    /// <param name="type2">¹Ù²ï ¹«±â</param>
+    /// <param name="type1">ì´ì „ ë¬´ê¸°</param>
+    /// <param name="type2">ë°”ë€ ë¬´ê¸°</param>
     private void OnWeaponTypeChanged(WeaponType type1, WeaponType type2)
     {
         switch (type2)

@@ -44,7 +44,7 @@ public class AI_Damaged : AI_Base
     }
 
     /// <summary>
-    /// µ¥¹ÌÁö ¸ðµåÀÏ ¶§ ¶Ç ÇÇ°Ý ´çÇÏ¸é ´Ù½Ã ÄðÅ¸ÀÓÀ» ÁÖ±âÀ§ÇÑ ¾Ö´Ï¸ÞÀÌ¼Ç ÀÌº¥Æ®
+    /// ë°ë¯¸ì§€ ëª¨ë“œì¼ ë•Œ ë˜ í”¼ê²© ë‹¹í•˜ë©´ ë‹¤ì‹œ ì¿¨íƒ€ìž„ì„ ì£¼ê¸°ìœ„í•œ ì• ë‹ˆë©”ì´ì…˜ ì´ë²¤íŠ¸
     /// </summary>
     private void OnBeginDamaged()
     {

@@ -130,7 +130,7 @@ public static class DirectoryHelpers
     {
         int start = absolutePath.IndexOf("/Assets/");
 
-        Debug.Assert(start > 0, "¿Ã¹Ù¸¥ ¿¡¼Â °æ·Î°¡ ¾Æ´Õ´Ï´Ù.");
+        Debug.Assert(start > 0, "ì˜¬ë°”ë¥¸ ì—ì…‹ ê²½ë¡œê°€ ì•„ë‹™ë‹ˆë‹¤.");
 
         absolutePath = absolutePath.Substring(start + 1, absolutePath.Length - start - 1);
     }

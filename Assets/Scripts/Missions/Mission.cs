@@ -10,25 +10,25 @@ public enum MissionState
 [Serializable]
 public class Mission
 {
-    //¹Ì¼Ç °íÀ¯ ¾ÆÀÌµð
+    //ë¯¸ì…˜ ê³ ìœ  ì•„ì´ë””
     public int ID;
     public MissionState State = MissionState.None;
 
-    //¹Ì¼Ç °ü·Ã NPC¸Þ¼¼Áö
-    public string[] messages; //0 : ¹Ì¼Ç Á¦¾È ¸Þ¼¼Áö, 1 : ¹Ì¼Ç ¼öÇàÁß ¸Þ¼¼Áö, 2 : ¹Ì¼Ç ¿Ï·á ¸Þ¼¼Áö
+    //ë¯¸ì…˜ ê´€ë ¨ NPCë©”ì„¸ì§€
+    public string[] messages; //0 : ë¯¸ì…˜ ì œì•ˆ ë©”ì„¸ì§€, 1 : ë¯¸ì…˜ ìˆ˜í–‰ì¤‘ ë©”ì„¸ì§€, 2 : ë¯¸ì…˜ ì™„ë£Œ ë©”ì„¸ì§€
 
-    //¹Ì¼Ç Ã¢ UI¸Þ¼¼Áö
+    //ë¯¸ì…˜ ì°½ UIë©”ì„¸ì§€
     public string NoticeMsg;
 
-    //¹Ì¼Ç ¿ä±¸ »çÇ×
+    //ë¯¸ì…˜ ìš”êµ¬ ì‚¬í•­
     public int[] EnemyIds;
     public int RequireCount;
     private int currentCount = 0;
     public int CurrentCount {get => currentCount; set => currentCount = value; }
 
-    //¹Ì¼Ç Accept Timeline
+    //ë¯¸ì…˜ Accept Timeline
     public TimelineAsset AcceptAsset;
-    //¹Ì¼Ç Complete Timeline
+    //ë¯¸ì…˜ Complete Timeline
     public TimelineAsset CompleteAsset;
 
     public void Initialize()

@@ -7,7 +7,7 @@ using System.Collections;
 public class PlayerCameraController : MonoBehaviour
 {
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î¿¡ ºÙÀº Ä«¸Ş¶ó Á¾·ù
+    /// í”Œë ˆì´ì–´ì— ë¶™ì€ ì¹´ë©”ë¼ ì¢…ë¥˜
     /// </summary>
     public enum CameraType
     {
@@ -21,25 +21,25 @@ public class PlayerCameraController : MonoBehaviour
     private float longFov = 60.0f;
 
     /// <summary>
-    /// Åõ¸íÈ­¸¦ À§ÇÑ shader
+    /// íˆ¬ëª…í™”ë¥¼ ìœ„í•œ shader
     /// </summary>
     [SerializeField]
     private Shader transparentShader;
 
     /// <summary>
-    /// Åõ¸íÈ­¸¦ ÁøÇà½ÃÅ² °´Ã¼¸¦ µ¹·Á³õ±â À§ÇÑ shader
+    /// íˆ¬ëª…í™”ë¥¼ ì§„í–‰ì‹œí‚¨ ê°ì²´ë¥¼ ëŒë ¤ë†“ê¸° ìœ„í•œ shader
     /// </summary>
     [SerializeField]
     private Shader opaqueShader;
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾îÀÇ ¿À¸¥ÂÊ ¾î±ú
+    /// í”Œë ˆì´ì–´ì˜ ì˜¤ë¥¸ìª½ ì–´ê¹¨
     /// </summary>
     [SerializeField]
     private Transform rightShoulderTransform;
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾îÀÇ ºÙÀº Ä«¸Ş¶óµé
+    /// í”Œë ˆì´ì–´ì˜ ë¶™ì€ ì¹´ë©”ë¼ë“¤
     /// </summary>
     [SerializeField]
     private CinemachineVirtualCameraBase[] cameras;
