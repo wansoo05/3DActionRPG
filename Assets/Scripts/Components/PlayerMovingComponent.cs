@@ -20,10 +20,6 @@ public class PlayerMovingComponent : MonoBehaviour
     private string followTargetName = "FollowTarget";
 
     [SerializeField]
-    private bool bUseCamera = true;
-
-
-    [SerializeField]
     private LayerMask groundLayer;
 
     [SerializeField]
@@ -40,6 +36,9 @@ public class PlayerMovingComponent : MonoBehaviour
     [Range(0.0f, 0.3f)]
     private float rotationSmoothTime = 0.12f;
 
+    /// <summary>
+    /// 점프 후 바로 Fall상태가 되지 않게 하기 위한 쿨타임
+    /// </summary>
     [SerializeField]
     private float fallTimeOut = 0.15f;
 
@@ -49,16 +48,21 @@ public class PlayerMovingComponent : MonoBehaviour
     [SerializeField]
     public float gravity = -15.0f;
 
+    /// <summary>
+    /// 공기 저항 변수
+    /// </summary>
     [SerializeField]
     public float drag = 0.0f;
 
+    /// <summary>
+    /// 점프가 끝난 후 바로 점프가 불가능하도록 하기 위한 쿨타임
+    /// </summary>
     [SerializeField]
     private float jumpTimeout = 0.5f;
 
     private float targetRotation;
     private Vector3 targetDirection;
     private float rotationVelocity;
-    [SerializeField]
     private float verticalVelocity;
     public float VerticalVelocity { get => verticalVelocity; set => verticalVelocity = value; }
     private float animationBlend;
@@ -70,8 +74,6 @@ public class PlayerMovingComponent : MonoBehaviour
     public Vector3 ExternalForce { set => externalForce = value; }
 
     private bool isJumping = false;
-
-    public bool UseCamera { set => bUseCamera = value; }
 
     private bool bCanMove = true;
 
@@ -215,80 +217,12 @@ public class PlayerMovingComponent : MonoBehaviour
     /// <summary>
     /// 플레이어의 이동을 담당해주는 함수
     /// </summary>
-    #region Move_Rigidbody
-    //private void Update_Move()
-    //{
-    //    //플레이어의 이동이 자연스럽게 이어지도록 도와주는 함수
-    //    currInputMove = Vector2.SmoothDamp(currInputMove, inputMove, ref velocity, 1.0f / sensitivity);
-
-    //    //경사면인지 알기 위한 bool형 변수
-    //    RaycastHit hit;
-    //    bool isSlope = GroundHelpers.IsSlope(transform.position, out hit);
-
-    //    Vector3 gravity = Vector3.down * Mathf.Abs(rigidbody.velocity.y);
-
-    //    //달리는 키를 눌렀으면 runSpeed로 교체
-    //    speed = bRun ? runSpeed : walkSpeed;
-
-    //    if (weapon.UnarmedMode)
-    //    {
-    //        direction = (transform.right * currInputMove.x) + (transform.forward * currInputMove.y);
-    //        direction.y = 0.0f;
-
-    //        if (isGrounded && isSlope)
-    //        {
-    //            direction = GroundHelpers.AdjustDirectionToSlope(direction, hit.normal);
-    //        }
-
-    //        direction = direction.normalized * speed;
-
-    //        if (currInputMove.magnitude < deadZone)
-    //            direction = Vector3.zero;
-
-    //        if (direction.magnitude > 0.0f)
-    //        {
-    //            Quaternion rotation = Quaternion.LookRotation(direction);
-    //            transform.rotation = rotation;
-    //        }
-
-
-    //        animator.SetFloat("SpeedY", direction.magnitude);
-    //    }
-    //    else
-    //    {
-    //        Vector3 forward = Camera.main.transform.forward;
-    //        forward.y = 0.0f;
-    //        direction = (transform.right * currInputMove.x) + (transform.forward * currInputMove.y);
-    //        if (isGrounded && isSlope)
-    //        {
-    //            direction = GroundHelpers.AdjustDirectionToSlope(direction, hit.normal);
-    //        }
-    //        speed = bRun ? runSpeed : walkSpeed;
-    //        direction *= speed;
-
-    //        //플레이어 이동속도가 일정속도 이상으로 제한한다.
-    //        if (currInputMove.magnitude < deadZone)
-    //            direction = Vector3.zero;
-
-    //        if (inputMove.magnitude > 0.0f)
-    //            transform.rotation = Quaternion.LookRotation(forward);
-
-    //        animator.SetFloat("SpeedX", currInputMove.x * speed);
-    //        animator.SetFloat("SpeedY", currInputMove.y * speed);
-    //    }
-
-
-    //    if (state.JumpMode() == false)
-    //        rigidbody.velocity = direction + gravity;
-    //}
-    #endregion
     private void ControllerMove()
     {
         if (controller.enabled == false)
             return;
 
         speed = 0.0f;
-        //Vector3 targetDirection = Vector3.zero;
         if (bCanMove)
         {
             float targetSpeed = bRun && inputMove.y > 0.0f ? runSpeed : walkSpeed;
@@ -364,7 +298,6 @@ public class PlayerMovingComponent : MonoBehaviour
         }
 
         Vector3 movement = targetDirection.normalized * (speed * Time.deltaTime) + new Vector3(0.0f, verticalVelocity, 0.0f) * Time.deltaTime;
-        print($"{speed}, {targetDirection}");
         //외부 충격의 방향과 움직임의 방향이 같으면 외부 충격 힘 40퍼센트로 감소
         if (Vector3.Dot(externalForce.normalized, movement.normalized) > 0 )
         {

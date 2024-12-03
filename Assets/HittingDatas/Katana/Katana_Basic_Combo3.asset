@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Power: 10
   Distance: 5
-  StopFrame: 7
+  StopFrame: 10
   Particle: {fileID: 0}
   ParticlePositionOffset: {x: 0, y: 0, z: 0}
   ParticleScaleOffset: {x: 1, y: 1, z: 1}

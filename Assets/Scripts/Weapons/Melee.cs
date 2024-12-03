@@ -11,8 +11,6 @@ public class Melee : Weapon
     protected PlayerMovingComponent moving;
     protected PlayerCameraController cameraController;
 
-    private bool bRotate;
-
     protected override void Awake()
     {
         base.Awake();
@@ -52,7 +50,6 @@ public class Melee : Weapon
             collider.enabled = false;
 
         hittedList.Clear();
-        bRotate = false;
     }
 
     private void Play_Impulse()
@@ -106,7 +103,6 @@ public class Melee : Weapon
         if (damage == null)
             return;
 
-
         Vector3 hitPoint = Vector3.zero;
 
         Collider enabledCollider = null;
@@ -133,22 +129,18 @@ public class Melee : Weapon
             Play_Impulse();
         }
 
-        //lookRotate(other.gameObject);
-
-
         Character character = rootObject.GetComponent<Character>();
         damage.OnDamage(rootObject, this, hitPoint, doActionDatas[actionIndex].hittingDatas[hitIndex]);
     }
 
+    /// <summary>
+    /// target을 향하여 바라보게 회전시켜주는 함수
+    /// </summary>
+    /// <param name="target"></param>
     private void lookRotate(GameObject target)
     {
-        if (bRotate == true)
-            return;
-
         if (isPlayer == false)
             return;
-
-        bRotate = true;
 
         float angle = 5.0f;
         

@@ -89,14 +89,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            HealthPointComponent hp = PlayerInstance.GetComponent<HealthPointComponent>();
-            hp.Damage(100.0f);
-        }    
-    }
+
     /// <summary>
     /// 게임 시작 최초에 한번만 불려지는 함수
     /// </summary>
